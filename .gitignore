@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Node / Share Screen
+node_modules/
+npm-debug.log*
+.env
+
+# Este projeto usa lib/ para codigo-fonte (o template acima ignora por causa de virtualenv)
+!lib/
+!lib/**

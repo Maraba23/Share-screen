@@ -1,0 +1,21 @@
+{
+  "name": "share-screen",
+  "version": "1.0.0",
+  "description": "Compartilhamento de tela local com link publico (estilo Discord), via WebRTC + tunel Cloudflare",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "local": "node server.js --no-tunnel"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "localtunnel": "^2.0.2",
+    "ws": "^8.18.0"
+  },
+  "license": "MIT",
+  "private": true
+}

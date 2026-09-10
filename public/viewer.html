@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Share Screen</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>👀</text></svg>">
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="dot" id="liveDot"></span> Share Screen</div>
+    <span class="pill" id="statusPill">conectando…</span>
+    <div class="spacer"></div>
+    <span class="pill" id="modePill" hidden></span>
+    <span class="pill" id="countPill">0 assistindo</span>
+  </header>
+
+  <main class="stage" id="stage">
+    <video id="video" autoplay playsinline muted></video>
+    <div class="placeholder" id="placeholder">
+      <h2 id="phTitle">Aguardando a transmissão…</h2>
+      <p id="phText">Assim que o host começar a compartilhar, a tela aparece aqui.</p>
+    </div>
+    <div class="stage-controls">
+      <button id="btnSound" class="small primary">🔇 Ativar som</button>
+      <button id="btnFull" class="small">⛶ Tela cheia</button>
+      <button id="btnRelay" class="small" title="Use se a imagem não carregar">Modo compatibilidade</button>
+    </div>
+  </main>
+
+  <aside class="sidebar">
+    <div class="section">
+      <h3>Seu apelido</h3>
+      <div class="link-row">
+        <input id="nick" maxlength="32" placeholder="Como quer aparecer?">
+        <button id="btnNick" class="small">Salvar</button>
+      </div>
+    </div>
+
+    <div class="chat">
+      <h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)">Chat</h3>
+      <div class="chat-log" id="chatLog"></div>
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" placeholder="Mensagem…" maxlength="500" autocomplete="off">
+        <button class="small" type="submit">Enviar</button>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/viewer.js"></script>
+</body>
+</html>

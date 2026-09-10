@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Share Screen — painel do host</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🖥️</text></svg>">
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="dot" id="liveDot"></span> Share Screen</div>
+    <span class="pill" id="statusPill">conectando…</span>
+    <div class="spacer"></div>
+    <span class="pill" id="statsPill" hidden></span>
+    <button id="btnMic">🎤 Microfone</button>
+    <button id="btnShare" class="primary">Compartilhar tela</button>
+    <button id="btnStop" class="danger" hidden>Parar</button>
+  </header>
+
+  <main class="stage" id="stage">
+    <video id="preview" autoplay muted playsinline></video>
+    <div class="placeholder">
+      <h2>Nada sendo transmitido</h2>
+      <p>Clique em <b>Compartilhar tela</b> e escolha a tela, janela ou aba.
+         Para levar o áudio junto, marque <b>“Compartilhar áudio”</b> na janela do navegador.</p>
+    </div>
+  </main>
+
+  <aside class="sidebar">
+    <div class="section">
+      <h3>Link para convidados</h3>
+      <div class="link-row">
+        <input id="viewUrl" readonly value="gerando…">
+        <button id="btnCopy" class="small">Copiar</button>
+      </div>
+      <p class="empty" id="linkHint" style="margin:8px 0 0"></p>
+    </div>
+
+    <div class="section">
+      <h3>Qualidade</h3>
+      <div class="field">
+        <label for="selRes">Resolução máxima</label>
+        <select id="selRes">
+          <option value="0">Original da tela</option>
+          <option value="1440">1440p</option>
+          <option value="1080" selected>1080p</option>
+          <option value="720">720p</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="selFps">Taxa de quadros</label>
+        <select id="selFps">
+          <option value="60">60 fps (jogos/vídeo)</option>
+          <option value="30" selected>30 fps</option>
+          <option value="15">15 fps (leitura/código)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="selRate">Banda alvo <span id="rateLabel">4 Mbps</span></label>
+        <input id="selRate" type="range" min="1" max="12" step="1" value="4" style="padding:0">
+      </div>
+      <div class="field">
+        <label for="selMode">Prioridade</label>
+        <select id="selMode">
+          <option value="detail" selected>Nitidez (texto, código)</option>
+          <option value="motion">Fluidez (vídeo, jogo)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Assistindo (<span id="count">0</span>)</h3>
+      <ul class="people" id="people"></ul>
+      <p class="empty" id="peopleEmpty">Ninguém entrou ainda.</p>
+    </div>
+
+    <div class="chat">
+      <h3 style="margin:0 0 10px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)">Chat</h3>
+      <div class="chat-log" id="chatLog"></div>
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" placeholder="Mensagem…" maxlength="500" autocomplete="off">
+        <button class="small" type="submit">Enviar</button>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="/static/js/common.js"></script>
+<script src="/static/js/host.js"></script>
+</body>
+</html>
