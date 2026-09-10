@@ -1,5 +1,7 @@
 # Share Screen
 
+> Apos o discord banir o compartilhamento de tela no Brasil montei esse projeto
+
 Compartilhamento de tela estilo Discord, rodando na sua máquina. Você inicia o
 servidor, ele cria um túnel público para o seu localhost e devolve um link.
 Quem receber o link vê sua tela (e ouve o áudio) direto no navegador — sem
